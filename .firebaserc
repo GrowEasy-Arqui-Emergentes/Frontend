@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "deploy-greengrow": {
+      "hosting": {
+        "greengrow": [
+          "deploy-greengrow"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "deploy-greengrow"
+  }
+}
