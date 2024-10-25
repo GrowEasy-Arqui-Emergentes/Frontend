@@ -36,21 +36,21 @@ export class DbService {
 
   //GET
   getCourses() {
-    return this.http.get<any[]>(this.baseUrl + '/courses');
+    return this.http.get<any[]>('https://coursesservice-eya8hpewa9cgh9ay.canadacentral-01.azurewebsites.net/courses');
   }
 
   //GET POSTS
   getPosts() {
-    return this.http.get<any[]>(this.baseUrl + '/posts');
+    return this.http.get<any[]>('https://communityservice-a9brbedrgzagcgfj.canadacentral-01.azurewebsites.net/api/v1/posts');
   }
 
   //GET TRENDS
   getTrends() {
-    return this.http.get<any[]>(this.baseUrl + '/trends');
+    return this.http.get<any[]>('https://communityservice-a9brbedrgzagcgfj.canadacentral-01.azurewebsites.net/api/v1/posts');
   }
 
   // POST POSTS
   createPost(post: any) {
-    return this.http.post<any>(this.baseUrl + '/posts', post, this.httpOptions);
+    return this.http.post<any>('https://communityservice-a9brbedrgzagcgfj.canadacentral-01.azurewebsites.net/api/v1/posts', post, this.httpOptions);
   }
 }
