@@ -46,7 +46,7 @@ export class DbService {
 
   //GET TRENDS
   getTrends() {
-    return this.http.get<any[]>('https://communityservice-a9brbedrgzagcgfj.canadacentral-01.azurewebsites.net/api/v1/posts');
+    return this.http.get<any[]>('https://articlesservice-e5fjdtfpbjgvhzaj.canadacentral-01.azurewebsites.net/api/v1/articles');
   }
 
   // POST POSTS
