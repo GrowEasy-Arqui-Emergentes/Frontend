@@ -53,10 +53,10 @@ body {
     .top button{
         margin-left: 30%;
         margin-top: 20%;
-        
+
     }
-    
-    
+
+
 }
 
 
@@ -115,7 +115,12 @@ mat-card {
 /* Estilos para diferentes bloques */
 .card-container, .card-container-2, .card-container-3 {
     text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
+
 .matBtn{
     width: 50%;
 }
@@ -134,25 +139,25 @@ mat-card {
     .container {
         padding: 4%;
     }
-    
+
     .title {
         font-size: 300%;
     }
-    
+
     button.mat-raised-button {
         font-size: 3%;
         padding: 3% 6%;
     }
-    
+
     mat-icon {
         font-size: 6%;
         margin: 3%;
     }
-    
+
     .box img {
         width: 100%;
     }
-    
+
     mat-card {
         width: 100%;
         margin: 4% 0;

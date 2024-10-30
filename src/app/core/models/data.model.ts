@@ -4,9 +4,6 @@ export interface DataModel {
     image: any;
     description: any;
     price: any;
-    rating: any;
     duration: any;
     category: any;
-    date:any;
-   
 }

@@ -41,16 +41,16 @@ export class DbService {
 
   //GET POSTS
   getPosts() {
-    return this.http.get<any[]>('https://communityservice-a9brbedrgzagcgfj.canadacentral-01.azurewebsites.net/api/v1/posts');
+    return this.http.get<any[]>('http://localhost:8085/posts');
   }
 
   //GET TRENDS
   getTrends() {
-    return this.http.get<any[]>('https://articlesservice-e5fjdtfpbjgvhzaj.canadacentral-01.azurewebsites.net/api/v1/articles');
+    return this.http.get<any[]>('http://localhost:8085/grow-easy/trends');
   }
 
   // POST POSTS
   createPost(post: any) {
-    return this.http.post<any>('https://communityservice-a9brbedrgzagcgfj.canadacentral-01.azurewebsites.net/api/v1/posts', post, this.httpOptions);
+    return this.http.post<any>('http://localhost:8085/posts', post, this.httpOptions);
   }
 }

@@ -26,9 +26,6 @@ export class AddCourseComponent {
   ) {}
 
   addCourse() {
-    // Establecer la calificación inicial
-    this.courseData.rating = 0.0;
-    this.courseData.date = new Date().toLocaleDateString('es-ES');
     console.log('Data being sent:', this.courseData);
 
     // Llamar al servicio para crear el curso

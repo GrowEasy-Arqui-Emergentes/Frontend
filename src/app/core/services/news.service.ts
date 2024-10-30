@@ -1,4 +1,4 @@
-import { ArticleModel } from './../models/articles.model';
+import { ArticleModel } from 'src/app/core/models/articles.model';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError} from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
@@ -7,7 +7,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
     providedIn: 'root'
 })
 export class NewsService {
-    baseUrl = 'https://newsservice-f4gvargfayd3cpfj.canadacentral-01.azurewebsites.net/api/v1/news';
+    baseUrl = 'http://localhost:8080/api/v1/articles';
 
     constructor(private http: HttpClient) { }
 

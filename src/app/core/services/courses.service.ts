@@ -7,7 +7,7 @@ import { DataModel } from '../models/data.model';
     providedIn: 'root'
 })
 export class CoursesService {
-    baseUrl = 'https://coursesservice-eya8hpewa9cgh9ay.canadacentral-01.azurewebsites.net/courses';
+    baseUrl = 'http://localhost:18857/courses';
 
     constructor(private http: HttpClient) { }
 

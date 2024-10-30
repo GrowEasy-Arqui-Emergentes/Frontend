@@ -1,8 +1,6 @@
 export interface ArticleModel {
     id: any;
-    imagen: any;
-    titulo: any;
-    fecha: any;
-    descripcion: any;
-    enlace: any;
+    image: any;
+    title: any;
+    link: any;
 }
