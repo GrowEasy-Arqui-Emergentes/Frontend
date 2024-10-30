@@ -6,6 +6,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { DataModel } from '../models/data.model';
+import {PostModel} from "../models/post.model";
 
 @Injectable({
   providedIn: 'root',
@@ -41,9 +42,15 @@ export class DbService {
 
   //GET POSTS
   getPosts() {
-    return this.http.get<any[]>('http://localhost:8085/posts');
+    return this.http.get<any[]>('https://community-grow-easy-hbcfche6ffabe6be.canadacentral-01.azurewebsites.net/posts');
   }
 
+  getPostById(id: number) {
+    return this.http.get<any[]>(`https://community-grow-easy-hbcfche6ffabe6be.canadacentral-01.azurewebsites.net/posts/${id}`);
+  }
+  updatePost(id: number, updatedPost: PostModel): Observable<PostModel> {
+    return this.http.patch<PostModel>(`https://community-grow-easy-hbcfche6ffabe6be.canadacentral-01.azurewebsites.net/posts/${id}/update`, updatedPost);
+  }
   //GET TRENDS
   getTrends() {
     return this.http.get<any[]>('http://localhost:8085/grow-easy/trends');
@@ -51,6 +58,6 @@ export class DbService {
 
   // POST POSTS
   createPost(post: any) {
-    return this.http.post<any>('http://localhost:8085/posts', post, this.httpOptions);
+    return this.http.post<any>('https://community-grow-easy-hbcfche6ffabe6be.canadacentral-01.azurewebsites.net/', post, this.httpOptions);
   }
 }
