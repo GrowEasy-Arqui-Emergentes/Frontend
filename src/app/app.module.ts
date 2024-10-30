@@ -42,6 +42,7 @@ import { CreatepostComponent } from './components/CreatePost/createpost/createpo
 import { ProfileComponent } from './components/Shared/profile/profile.component';
 import { CommonModule } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {PostDetailComponent} from "./components/Community Context/post-detail/post-detail/post-detail.component";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     PaymentComponent,
     CreatepostComponent,
     ProfileComponent,
-    
+    PostDetailComponent,
+
   ],
   imports: [
     BrowserModule,

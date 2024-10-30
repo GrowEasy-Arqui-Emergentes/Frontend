@@ -11,21 +11,23 @@ import { CreatepostComponent } from './components/CreatePost/createpost/createpo
 
 import { authGuard } from './core/guards/auth.guard';
 import { ProfileComponent } from './components/Shared/profile/profile.component';
+import {PostDetailComponent} from "./components/Community Context/post-detail/post-detail/post-detail.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'courses', component: CoursesComponent },
-  { path: 'login', component: LogInComponent }, 
+  { path: 'login', component: LogInComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'articles', component: ArticlesComponent },
   { path: 'comunnity', component: ComunnityComponent },
   { path: 'createpost', component: CreatepostComponent },
-  { path: 'payment', component: PaymentComponent }, // Agrega esta ruta para el componente de pago
+  { path: 'payment', component: PaymentComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+  {path:'post-detail/:id', component: PostDetailComponent},
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: '**', redirectTo: 'login' },
-  
- 
+
+
 ];
 
 @NgModule({
