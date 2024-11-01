@@ -19,6 +19,7 @@ export class CreatepostComponent {
     likes: 0,
     comments: 0,
     views: 0,
+    text: ''
   };
 
   constructor(

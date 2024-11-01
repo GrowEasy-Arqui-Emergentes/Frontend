@@ -20,12 +20,38 @@
       <p class="error">The title is required.</p>
     </div>
     <label for="description">Description:</label>
-    <textarea
+    <input
+      type="text"
       id="description"
       name="description"
       [(ngModel)]="newPost.description"
       required
-    ></textarea>
+    />
+    <div
+      *ngIf="
+        postForm.controls['description'].invalid &&
+        postForm.controls['description'].touched
+      "
+    >
+      <p class="error">The description is required.</p>
+    </div>
+    <label for="text">Text:</label>
+    <input
+      type="text"
+      id="text"
+      name="text"
+      [(ngModel)]="newPost.text"
+      required
+    />
+    <div
+      *ngIf="
+        postForm.controls['text'].invalid &&
+        postForm.controls['text'].touched
+      "
+    >
+
+      <p class="error">The text is required.</p>
+    </div>
     <label for="author">Author:</label>
     <input
       type="text"
@@ -40,6 +66,7 @@
         postForm.controls['author'].touched
       "
     >
+
       <p class="error">The author is required.</p>
     </div>
     <label for="image">Image:</label>
