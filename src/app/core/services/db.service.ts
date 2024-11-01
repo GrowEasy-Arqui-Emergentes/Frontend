@@ -58,6 +58,6 @@ export class DbService {
 
   // POST POSTS
   createPost(post: any) {
-    return this.http.post<any>('https://community-grow-easy-hbcfche6ffabe6be.canadacentral-01.azurewebsites.net/', post, this.httpOptions);
+    return this.http.post<any>('https://community-grow-easy-hbcfche6ffabe6be.canadacentral-01.azurewebsites.net/posts', post, this.httpOptions);
   }
 }
