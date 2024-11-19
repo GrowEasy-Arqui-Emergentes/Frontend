@@ -1,0 +1,151 @@
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <h1>{{ user?.displayName }}'s Dashboard </h1>
+
+  <section class="section">
+    <h2 (click)="toggleProjects()" class="toggle-header">
+      PROJECTS
+      <span class="arrow" [class.expanded]="showProjects">&#9662;</span>
+    </h2>
+    <button (click)="toggleNewProjectForm()" class="new-project-button">New Project</button>
+    <div *ngIf="showNewProjectForm" class="new-project-form">
+      <form (ngSubmit)="createProject(); toggleNewProjectForm()">
+        <label for="projectName">Name:</label>
+        <input id="projectName" type="text" [(ngModel)]="newProject.name" name="projectName" required />
+        <label for="projectDescription">Description:</label>
+        <textarea id="projectDescription" [(ngModel)]="newProject.description" name="projectDescription" required></textarea>
+        <label for="plantSelect1">Select Plant:</label>
+        <select id="plantSelect1" [(ngModel)]="plantId2" name="plantId2" required>
+          <option *ngFor="let plant of plants" [value]="plant.id">
+            {{ plant.name }}
+          </option>
+        </select>
+        <label for="deviceSelect">Select Device:</label>
+        <select id="deviceSelect" [(ngModel)]="deviceId" name="deviceId" required>
+          <option *ngFor="let device of devices" [value]="device.id">
+            {{ device.name }}
+          </option>
+        </select>
+        <button type="submit" class="submit-button">Create</button>
+        <button type="button" class="cancel-button" (click)="toggleNewProjectForm()">Cancel</button>
+      </form>
+    </div>
+    <div *ngIf="showProjects">
+      <div *ngIf="projects && projects.length > 0; else noProjects">
+        <ul>
+          <li *ngFor="let project of projects" class="project-item">
+            <div class="project-column">
+              <h3>{{ project.name }}</h3>
+              <p><strong>Descripción:</strong> {{ project.description }}</p>
+              <p><strong>Dispositivo:</strong> {{ project.device?.name || 'Sin dispositivo' }}</p>
+              <p><strong>Planta:</strong> {{ project.plant?.name || 'Sin planta' }}</p>
+            </div>
+            <div class="project-column">
+              <p><strong>Temperatura Actual:</strong> {{ project.device.temperature }}
+              <p><strong>Humedad Actual:</strong> {{ project.device.humidity }}%</p>
+              <div *ngIf="isOutOfRange(project.device, project.plant); else inRange">
+                <p class="alert-message">¡La temperatura o la humedad están fuera de rango!</p>
+              </div>
+              <ng-template #inRange>
+                <p class="good-message">Temperatura y humedad dentro de los rangos</p>
+              </ng-template>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <ng-template #noProjects>
+      <p>There aren't projects</p>
+    </ng-template>
+  </section>
+
+  <section class="section">
+    <h2 (click)="togglePlants()" class="toggle-header">
+      PLANTS
+      <span class="arrow1" [class.expanded]="showPlants">&#9662;</span>
+    </h2>
+    <button (click)="toggleNewPlantForm()" class="new-project-button">New Plant</button>
+    <div *ngIf="showNewPlantForm" class="new-project-form">
+      <form (ngSubmit)="createPlant(); toggleNewPlantForm()">
+        <label for="name">Name:</label>
+        <input id="name" type="text" [(ngModel)]="newPlant.name" name="name" required />
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="newPlant.description" name="description" required></textarea>
+        <label for="maxTemperature">Max Temperature:</label>
+        <textarea id="maxTemperature" [(ngModel)]="newPlant.maxTemperature" name="maxTemperature" required></textarea>
+        <label for="minTemperature">Min Temperature:</label>
+        <textarea id="minTemperature" [(ngModel)]="newPlant.minTemperature" name="minTemperature" required></textarea>
+        <label for="maxHumidity">Max Humidity:</label>
+        <textarea id="maxHumidity" [(ngModel)]="newPlant.maxHumidity" name="maxHumidity" required></textarea>
+        <label for="minHumidity">Min Humidity:</label>
+        <textarea id="minHumidity" [(ngModel)]="newPlant.minHumidity" name="minHumidity" required></textarea>
+        <button type="submit" class="submit-button">Create</button>
+        <button type="button" class="cancel-button" (click)="toggleNewPlantForm()">Cancel</button>
+      </form>
+    </div>
+    <div *ngIf="showPlants">
+      <div *ngIf="plants && plants.length > 0; else noPlants">
+        <ul>
+          <li *ngFor="let plant of plants" class="plant-item">
+            <div class="plant-column">
+              <h3>{{ plant.name }}</h3>
+              <p><strong>Descripción:</strong> {{ plant.description }}</p>
+            </div>
+            <div class="plant-column">
+              <p><strong>Temperatura Mínima:</strong> {{ plant.minTemperature }} °C</p>
+              <p><strong>Temperatura Máxima:</strong> {{ plant.maxTemperature }} °C</p>
+              <p><strong>Humedad Mínima:</strong> {{ plant.minHumidity }} %</p>
+              <p><strong>Humedad Máxima:</strong> {{ plant.maxHumidity }} %</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <ng-template #noPlants>
+      <p>There aren't plants.</p>
+    </ng-template>
+  </section>
+
+  <section class="section">
+    <h2 (click)="toggleDevice()" class="toggle-header">
+      DEVICES
+      <span class="arrow2" [class.expanded]="showDevices">&#9662;</span>
+    </h2>
+    <button (click)="toggleNewDeviceForm()" class="new-project-button">New Device</button>
+    <div *ngIf="showNewDeviceForm" class="new-project-form">
+      <form (ngSubmit)="createDevice(); toggleNewDeviceForm()">
+        <label for="deviceName">Name:</label>
+        <input id="deviceName" type="text" [(ngModel)]="newDevice.name" name="deviceName" required />
+        <label for="deviceDescription">Description:</label>
+        <textarea id="deviceDescription" [(ngModel)]="newDevice.description" name="deviceDescription" required></textarea>
+
+        <label for="plantSelect">Select Plant:</label>
+        <select id="plantSelect" [(ngModel)]="plantId" name="plantId" required>
+          <option *ngFor="let plant of plants" [value]="plant.id">
+            {{ plant.name }}
+          </option>
+        </select>
+
+        <button type="submit" class="submit-button">Create</button>
+        <button type="button" class="cancel-button" (click)="toggleNewDeviceForm()">Cancel</button>
+      </form>
+    </div>
+    <div *ngIf="showDevices">
+      <div *ngIf="devices && devices.length > 0; else noDevices">
+        <ul>
+          <li *ngFor="let device of devices" class="device-item">
+            <h3>{{ device.name }}</h3>
+            <p><strong>Descripción:</strong> {{ device.description }}</p>
+            <p><strong>Planta:</strong> {{ device.plant?.name || 'Sin planta asociada' }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <ng-template #noDevices>
+      <p>There aren't devices</p>
+    </ng-template>
+  </section>
+</div>

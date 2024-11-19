@@ -12,6 +12,7 @@ import { CreatepostComponent } from './components/CreatePost/createpost/createpo
 import { authGuard } from './core/guards/auth.guard';
 import { ProfileComponent } from './components/Shared/profile/profile.component';
 import {PostDetailComponent} from "./components/Community Context/post-detail/post-detail/post-detail.component";
+import {ProjectsComponent} from "./components/Iot Context/projects/projects.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'articles', component: ArticlesComponent },
   { path: 'comunnity', component: ComunnityComponent },
   { path: 'createpost', component: CreatepostComponent },
+  {path: 'projects', component: ProjectsComponent},
   { path: 'payment', component: PaymentComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
   {path:'post-detail/:id', component: PostDetailComponent},

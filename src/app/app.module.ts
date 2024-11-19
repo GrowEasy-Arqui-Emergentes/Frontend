@@ -43,6 +43,7 @@ import { ProfileComponent } from './components/Shared/profile/profile.component'
 import { CommonModule } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {PostDetailComponent} from "./components/Community Context/post-detail/post-detail/post-detail.component";
+import { ProjectsComponent } from './components/Iot Context/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import {PostDetailComponent} from "./components/Community Context/post-detail/po
     CreatepostComponent,
     ProfileComponent,
     PostDetailComponent,
+    ProjectsComponent,
 
   ],
   imports: [
