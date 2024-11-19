@@ -53,7 +53,7 @@ export class DbService {
   }
   //GET TRENDS
   getTrends() {
-    return this.http.get<any[]>('http://localhost:8085/grow-easy/trends');
+    return this.http.get<any[]>('https://community-grow-easy-hbcfche6ffabe6be.canadacentral-01.azurewebsites.net/grow-easy/trends');
   }
 
   // POST POSTS

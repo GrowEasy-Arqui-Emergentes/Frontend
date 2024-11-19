@@ -7,7 +7,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
     providedIn: 'root'
 })
 export class NewsService {
-    baseUrl = 'http://localhost:8080/api/v1/articles';
+    baseUrl = 'https://articlesservice-e5fjdtfpbjgvhzaj.canadacentral-01.azurewebsites.net/api/v1/articles';
 
     constructor(private http: HttpClient) { }
 
